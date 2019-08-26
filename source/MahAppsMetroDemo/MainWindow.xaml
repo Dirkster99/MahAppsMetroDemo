@@ -9,9 +9,40 @@
         Title="ILSpy"
         Height="450" Width="800"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        Template="{StaticResource MyWindowTemplateKey}"
         Icon="/MahAppsMetroDemo;component/Resources/ILSpy.ico"
     >
+    <Controls:MetroWindow.TitleTemplate>
+        <DataTemplate>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Menu
+                    Grid.Column="0"
+                    Margin="6,0">
+                <MenuItem Name="File" Header="File">
+                    <MenuItem Name="Open" Header="Open"/>
+                    <MenuItem Name="Close" Header="Close"/>
+                </MenuItem>
+                <MenuItem Name="Edit" Header="Edit">
+                    <MenuItem Name="Copy" Header="Copy"/>
+                    <MenuItem Name="Paste" Header="Paste"/>
+                </MenuItem>
+            </Menu>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{Binding RelativeSource={RelativeSource AncestorType={x:Type Controls:MetroWindow}},Path=Title}"
+                    HorizontalAlignment="Left" VerticalAlignment="Center"
+                    Padding="10,5,10,5"
+                    Margin="6,0"
+                    FontSize="16"
+                    FontWeight="Bold"
+                    />
+            </Grid>
+        </DataTemplate>
+    </Controls:MetroWindow.TitleTemplate>
     <Grid>
         
     </Grid>
